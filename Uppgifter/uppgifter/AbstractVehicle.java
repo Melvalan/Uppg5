@@ -2,11 +2,11 @@ package uppgifter;
 
 public abstract class AbstractVehicle {
 	
-	private String registrationNumber;
-	private String owner;
-	private String manufacturer;
-	private String make;
-	private String numberOfSeats;
+	protected String registrationNumber;
+	protected String owner;
+	protected String manufacturer;
+	protected String make;
+	protected String numberOfSeats;
 		
 	AbstractVehicle(String r, String o) {
 		
@@ -17,7 +17,7 @@ public abstract class AbstractVehicle {
 	
 	String getInfo() {
 		
-		return registrationNumber + " is owned by " + owner;
+		return "Vehicle with registration number: " + registrationNumber + " is owned by " + owner + ".\n";
 		
 	}
 

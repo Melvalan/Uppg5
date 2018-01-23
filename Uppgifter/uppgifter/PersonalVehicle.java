@@ -9,4 +9,12 @@ public class PersonalVehicle extends Vehicle{
 	
 	}
 	
+	@Override
+	String getInfo() {
+		
+		return "Vehicle with registration number: " + this.registrationNumber + " is owned by " + this.owner
+				+ "\nThe car is manufactured by: " + this.manufacturer + " and the model is: " + this.make + "" +".\n";
+		
+	}
+	
 }
