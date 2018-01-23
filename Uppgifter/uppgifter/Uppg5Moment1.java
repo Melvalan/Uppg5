@@ -100,7 +100,7 @@ static String printVehicles() {
 				+ "\n\nTo enter a Truck, do it in the following fashion:"
 				+ "\n\n<Registration number>,<First and Last name>,<Manufacturer>,<Model>"
 				+ "\n\nIf you want to define some more information for the truck, do it in the following fashion:"
-				+ "\n\n<Registration number>,<First and Last name>,<Manufacturer>,<Model>,<Loaded with>,<Capacity>,<Depart>,<Destination>");
+				+ "\n\n<Registration number>,<First and Last name>,<Manufacturer>,<Model>,<Loaded with>,<Capacity>,<Start Location>,<Destination>");
 		
 			if(input.equals("")) {
 				
