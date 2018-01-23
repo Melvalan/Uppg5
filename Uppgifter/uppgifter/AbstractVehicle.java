@@ -6,12 +6,22 @@ public abstract class AbstractVehicle {
 	protected String owner;
 	protected String manufacturer;
 	protected String make;
-	protected String numberOfSeats;
+	protected int numberOfSeats;
 	protected String loadedWith;
-	protected String capacity;
+	protected double capacity;
 	protected String depart;
 	protected String destination;
+	protected double motorVolume;
+	protected int horsePower;
+	protected double fuelConsumption;
+	protected int distance;
 		
+	AbstractVehicle(){
+		
+		//A dummy constructor, needed for PersonalVehicleModifiers
+		
+	}
+	
 	AbstractVehicle(String r, String o) {
 		
 		this.registrationNumber = r;
@@ -25,7 +35,7 @@ public abstract class AbstractVehicle {
 		
 	}
 
-	public void setPersonalVehicleInfo(String manu, String model, String num) {
+	public void setPersonalVehicleInfo(String manu, String model, int num) {
 		
 		this.manufacturer = manu;
 		this.make = model;
@@ -40,7 +50,7 @@ public abstract class AbstractVehicle {
 		
 	}
 	
-	public void setTruckVehicleModifiers(String lW, String c, String dep, String dest) {
+	public void setTruckVehicleModifiers(String lW, double c, String dep, String dest) {
 		
 		this.loadedWith = lW;
 		this.capacity = c;

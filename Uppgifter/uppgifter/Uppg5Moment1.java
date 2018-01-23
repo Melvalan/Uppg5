@@ -77,11 +77,17 @@ static String printVehicles() {
 				+ "\n\nIf you want to define some more information for the truck, do it in the following fashion:"
 				+ "\n\n<Registration number>,<First and Last name>,<Manufacturer>,<Model>,<Loaded with>,<Capacity>,<Depart>,<Destination>");
 		
+			if(input == null) {
+				
+				break inputLoop;
+				
+			}
+			
 			try {
 		
 				separatedInput = input.split(",");
 				System.out.println("Debugging: " + separatedInput[0] + separatedInput[1]);
-			
+				
 				switch(separatedInput.length) {
 				
 				case 2:
@@ -98,7 +104,7 @@ static String printVehicles() {
 					
 				case 5:
 
-					vehicles.add(new PersonalVehicle(separatedInput[0],separatedInput[1],separatedInput[2],separatedInput[3],separatedInput[4]));
+					vehicles.add(new PersonalVehicle(separatedInput[0],separatedInput[1],separatedInput[2],separatedInput[3],Integer.parseInt(separatedInput[4])));
 					
 					break inputLoop;
 				
@@ -106,6 +112,12 @@ static String printVehicles() {
 					
 					vehicles.add(new TruckVehicleModifiers(separatedInput[0],separatedInput[1],separatedInput[2],separatedInput[3],separatedInput[4],separatedInput[5],separatedInput[6],separatedInput[7]));
 					
+					break inputLoop;
+				
+				case 9:
+					
+					vehicles.add(new PersonalVehicle(separatedInput[0],separatedInput[1],separatedInput[2],separatedInput[3],Integer.parseInt(separatedInput[4]),Double.parseDouble(separatedInput[5]),Integer.parseInt(separatedInput[6]),Double.parseDouble(separatedInput[7]),Integer.parseInt(separatedInput[8])));
+									
 					break inputLoop;
 					
 				}
@@ -116,7 +128,8 @@ static String printVehicles() {
 			
 				JOptionPane.showMessageDialog(null, "Sigh, well... Apparantly the instructions were not clear enough..."
 					+ "\nFirst enter registration number, then first and last name. Make sure to separate those with a comma."
-					+ "\nNo spaces, just a comme ','."
+					+ "\nNo spaces, just a comma ','."
+					+ "\nDo please, also keep in mind where you should enter just numbers, and make sure to use a decimal point to indicate decimal numbers. That is all."
 					+ "\n\nYou may try again... I guess.");
 			
 				continue inputLoop;
@@ -125,12 +138,6 @@ static String printVehicles() {
 		
 		}
 	
-	}
-	
-	static void exit() {
-		
-		
-		
 	}
 
 }

@@ -5,7 +5,7 @@ public class TruckVehicleModifiers extends TruckVehicle{
 	TruckVehicleModifiers(String regNum, String own, String manu, String model, String lw, String c, String dep, String dest){
 		
 		super(regNum,own,manu,model);
-		this.setTruckVehicleModifiers(lw, c, dep, dest);
+		this.setTruckVehicleModifiers(lw, Double.parseDouble(c), dep, dest);
 		
 	}
 	
