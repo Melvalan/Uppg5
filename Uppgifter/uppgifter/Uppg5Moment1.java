@@ -30,6 +30,13 @@ public class Uppg5Moment1 {
 						
 					case 1:
 						
+						if(vehicles.size() == 0) {
+							
+							JOptionPane.showMessageDialog(null, "Sorry, but you've not entered any Vehicles yet.");
+							break;
+							
+						}
+						
 						JOptionPane.showMessageDialog(null, "The currently entered vehicles, with the newest one last:\n\n" 
 						+ printVehicles());
 						break;
@@ -55,6 +62,14 @@ public class Uppg5Moment1 {
 	
 static String printVehicles() {
 		
+		if(vehicles.size() == 0) {
+			
+			JOptionPane.showMessageDialog(null, "Sorry, but you've not entered any Vehicles yet.");
+			
+			return "";
+			
+		}
+	
 		String printer = "";
 		
 		for(int i = 0; i < Uppg5Moment1.vehicles.size(); i++) {
@@ -78,10 +93,12 @@ static String printVehicles() {
 			String input = JOptionPane.showInputDialog("Hello and welcome to the fantastic vehicle management database, programme."
 				+ "\nYou may now enter a vehicle. Please, do so in the following fashion for a generic vehicle:"
 				+ "\n\n<Registration number>,<First and Last name>"
-				+ "\n\nTo enter a Truck, do it in the following fashion:"
-				+ "\n\n<Registration number>,<First and Last name>,<Manufacturer>,<Model>"
 				+ "\n\nTo enter a personal car, do it in the following fashion:"
 				+ "\n\n<Registration number>,<First and Last name>,<Manufacturer>,<Model>,<Number of Seats>"
+				+ "\n\nYou may define some more information for the car in the following fashion:"
+				+ "\n\n<Registration number>,<First and Last name>,<Manufacturer>,<Model>,<Number of Seats>,<Motor Volume>,<Horse Power>,<Fuel Consumption>,<Distance travelled>"
+				+ "\n\nTo enter a Truck, do it in the following fashion:"
+				+ "\n\n<Registration number>,<First and Last name>,<Manufacturer>,<Model>"
 				+ "\n\nIf you want to define some more information for the truck, do it in the following fashion:"
 				+ "\n\n<Registration number>,<First and Last name>,<Manufacturer>,<Model>,<Loaded with>,<Capacity>,<Depart>,<Destination>");
 		
