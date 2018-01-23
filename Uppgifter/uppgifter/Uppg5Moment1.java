@@ -26,7 +26,6 @@ public class Uppg5Moment1 {
 					case 0:
 						
 						registerVehicle();
-						System.out.println("Debugging: " + vehicles.get(0).getInfo());
 						break;
 						
 					case 1:
@@ -64,7 +63,7 @@ static String printVehicles() {
 
 	static void registerVehicle() {
 	
-		String[] separatedInput = new String[2];
+		String[] separatedInput = new String[5];
 			
 		inputLoop: while(true) {
 		
@@ -81,12 +80,28 @@ static String printVehicles() {
 				separatedInput = input.split(",");
 				System.out.println("Debugging: " + separatedInput[0] + separatedInput[1]);
 			
-				vehicles.add(new Vehicle(separatedInput[0],separatedInput[1]));
-			
-				vehicles.add(new TruckVehicle("MKZ-234","Christian","Toyota","54"));
+				switch(separatedInput.length) {
 				
-				break inputLoop;
-			
+				case 2:
+
+					vehicles.add(new Vehicle(separatedInput[0],separatedInput[1]));
+					
+					break inputLoop;
+					
+				case 4:
+
+					vehicles.add(new TruckVehicle(separatedInput[0],separatedInput[1],separatedInput[2],separatedInput[3]));
+					
+					break inputLoop;
+					
+				case 5:
+
+					vehicles.add(new PersonalVehicle(separatedInput[0],separatedInput[1],separatedInput[2],separatedInput[3],separatedInput[4]));
+					
+					break inputLoop;
+				
+				}
+				
 			}
 		
 			catch(Exception e) {
