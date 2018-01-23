@@ -10,7 +10,7 @@ public class Uppg5Moment1 {
 	
 	public static void main(String[] args) {
 		
-		String[] possibilities = {"Enter new Vehicle", "Print Current Vehicles", "Close Programme"};
+		String[] possibilities = {"Enter new Vehicle", "Print Current Vehicles", "Information for Specific Vehicle" ,"Close Programme"};
 		
 		mainLoop: while(true) {
 			
@@ -35,6 +35,12 @@ public class Uppg5Moment1 {
 						break;
 						
 					case 2:
+						
+						searchVehicle();
+						
+						break;
+						
+					case 3: 
 						
 						break mainLoop;
 						
@@ -67,6 +73,8 @@ static String printVehicles() {
 			
 		inputLoop: while(true) {
 		
+		try {
+			
 			String input = JOptionPane.showInputDialog("Hello and welcome to the fantastic vehicle management database, programme."
 				+ "\nYou may now enter a vehicle. Please, do so in the following fashion for a generic vehicle:"
 				+ "\n\n<Registration number>,<First and Last name>"
@@ -77,18 +85,17 @@ static String printVehicles() {
 				+ "\n\nIf you want to define some more information for the truck, do it in the following fashion:"
 				+ "\n\n<Registration number>,<First and Last name>,<Manufacturer>,<Model>,<Loaded with>,<Capacity>,<Depart>,<Destination>");
 		
-			if(input == null) {
+			if(input.equals("")) {
+				
+				JOptionPane.showMessageDialog(null, "You did not enter a vehicle, wheather or not it was intentional, I'm going to have to send you to the main menu.");
 				
 				break inputLoop;
 				
 			}
 			
-			try {
-		
-				separatedInput = input.split(",");
-				System.out.println("Debugging: " + separatedInput[0] + separatedInput[1]);
+			separatedInput = input.split(",");
 				
-				switch(separatedInput.length) {
+			switch(separatedInput.length) {
 				
 				case 2:
 
@@ -130,14 +137,49 @@ static String printVehicles() {
 					+ "\nFirst enter registration number, then first and last name. Make sure to separate those with a comma."
 					+ "\nNo spaces, just a comma ','."
 					+ "\nDo please, also keep in mind where you should enter just numbers, and make sure to use a decimal point to indicate decimal numbers. That is all."
-					+ "\n\nYou may try again... I guess.");
+					+ "\n\nI'm going to have to send you to the main menu now.");
 			
-				continue inputLoop;
+				break;
 			
 			}
 		
 		}
 	
+	}
+	
+	static void searchVehicle() {
+		
+		if(vehicles.size() == 0) {
+			
+			JOptionPane.showMessageDialog(null, "I'm sorry, but you've not as of yet enterd any Vehicles into my system. Please do that before attempting to find one.");
+			
+			return;
+			
+		}
+		
+		String search = JOptionPane.showInputDialog("You have elected to search my database, very well, please enter the registration number for the vehicle that you want to try and find out more about.");
+		
+		if(search == null) {
+			
+			JOptionPane.showMessageDialog(null, "Oh my, I think you forgot to enter a registration number. I'm going to have to send you back to the main menu now. Remember to enter a registration number the next time.");
+			
+			return;
+			
+		}
+		
+		searchLoop: for(int i = 0; i < vehicles.size(); i++) {
+			
+			if(search.equals(vehicles.get(i).registrationNumber)) {
+				
+				JOptionPane.showMessageDialog(null, "Here's the information that you requested:\n\n" + vehicles.get(i).getInfo());
+				return;
+				
+			}
+			
+		}
+		
+		JOptionPane.showMessageDialog(null, "I'm sorry, but the requested Vehicle could not be found in my system.");
+		
 	}
 
 }
