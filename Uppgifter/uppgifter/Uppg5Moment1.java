@@ -63,7 +63,7 @@ static String printVehicles() {
 
 	static void registerVehicle() {
 	
-		String[] separatedInput = new String[5];
+		String[] separatedInput = new String[9];
 			
 		inputLoop: while(true) {
 		
@@ -73,7 +73,9 @@ static String printVehicles() {
 				+ "\n\nTo enter a Truck, do it in the following fashion:"
 				+ "\n\n<Registration number>,<First and Last name>,<Manufacturer>,<Model>"
 				+ "\n\nTo enter a personal car, do it in the following fashion:"
-				+ "\n\n<Registration number>,<First and Last name>,<Manufacturer>,<Model>,<Number of Seats>");
+				+ "\n\n<Registration number>,<First and Last name>,<Manufacturer>,<Model>,<Number of Seats>"
+				+ "\n\nIf you want to define some more information for the truck, do it in the following fashion:"
+				+ "\n\n<Registration number>,<First and Last name>,<Manufacturer>,<Model>,<Loaded with>,<Capacity>,<Depart>,<Destination>");
 		
 			try {
 		
@@ -100,6 +102,12 @@ static String printVehicles() {
 					
 					break inputLoop;
 				
+				case 8:
+					
+					vehicles.add(new TruckVehicleModifiers(separatedInput[0],separatedInput[1],separatedInput[2],separatedInput[3],separatedInput[4],separatedInput[5],separatedInput[6],separatedInput[7]));
+					
+					break inputLoop;
+					
 				}
 				
 			}

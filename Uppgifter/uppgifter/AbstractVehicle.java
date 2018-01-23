@@ -7,6 +7,10 @@ public abstract class AbstractVehicle {
 	protected String manufacturer;
 	protected String make;
 	protected String numberOfSeats;
+	protected String loadedWith;
+	protected String capacity;
+	protected String depart;
+	protected String destination;
 		
 	AbstractVehicle(String r, String o) {
 		
@@ -33,6 +37,15 @@ public abstract class AbstractVehicle {
 		
 		this.manufacturer = manu;
 		this.make = model;
+		
+	}
+	
+	public void setTruckVehicleModifiers(String lW, String c, String dep, String dest) {
+		
+		this.loadedWith = lW;
+		this.capacity = c;
+		this.depart = dep;
+		this.destination = dest;
 		
 	}
 	
